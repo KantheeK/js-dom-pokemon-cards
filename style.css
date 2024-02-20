@@ -34,34 +34,45 @@ h2 {
 
   padding: 2rem 0;
   margin-bottom: 2rem;
+  
 }
 
 .card {
   width: 100%;
   justify-self: center;
 
-  border: 1px solid #252525;
-  border-radius: 8px;
+  border: 1px solid #0e24e7;
+  border-radius: 15px;
 
   cursor: pointer;
   transition: all 300ms;
+   
+  /* Setting BG color */
+  background-color: #c2c6eb;
+ 
 }
 
 .card:hover {
-  transform: scale(1.02);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transform: scale(1.03);
+  box-shadow: rgba(85, 28, 28, 0.35) 0px 5px 15px;
+  background-color: #727dda;
 }
 
 .card--text {
   margin: 0.2rem;
-  padding: 1rem;
+  padding: 2rem;
 
-  border-radius: 5px;
+  border-radius: 50px;
 }
 
 .card--img {
   display: block;
   margin: 0 auto;
 
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  box-shadow: rgba(53, 5, 228, 0.15) 0px 2px 8px;
+}
+
+/* Remove the the dot */
+ul.cards {
+  list-style-type: none;
 }

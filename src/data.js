@@ -8501,4 +8501,5 @@ const data = [
   }
 ];
 
-window.data = data;
+//window.data = data;
+export default data;
