@@ -1,5 +1,6 @@
 import data from '/src/data.js'
 import { addImageToggleListener, toggleImageSource } from './toggle.js';
+import { drop1 } from './dropdown.js';
 
 
 //You can start simple and just render a single 
@@ -27,6 +28,7 @@ console.log(data[0]);
 // document.getElementsByClassName('cards')[0].innerHTML = createAllPets(data).join('')
 
 
+//drop1()
 
 // Making single pokemon card: 
 const createPokemonCard = (pokemon, index) => {
@@ -48,6 +50,16 @@ const createPokemonCard = (pokemon, index) => {
     <li>SPECIAL-DEFENSE: ${pokemon.stats[4].base_stat}</li>
     <li>SPEED: ${pokemon.stats[5].base_stat}</li>
   </ul>
+
+  </div>
+  <!-- Dropdown box -->
+        <div class="dropdown">
+            <button class="dropdown-btn">Show Games</button>
+            <div class="dropdown-content">
+                ${pokemon.game_indices.map((game) => `<p>${game.version.name}</p>`).join('')}
+        </div>
+
+</div>
 </li>
     `
 }
@@ -61,7 +73,7 @@ createPokemonCard(data[0])
 
 // Function to append Pokemon cards to the ul element with the class "cards"
 const renderPokemonCards = (pokemonList) => {
-    //document.getElementsByClassName('cards')[0].innerHTML = createAllPets(data).join('')
+  
     // const cardsContainer = document.getElementsByClassName('cards)[0]
     const cardsContainer = document.querySelector('.cards')
     const cardsHTML = pokemonList.map((pokemon, index) => { return createPokemonCard(pokemon, index)}).join('');
@@ -69,12 +81,17 @@ const renderPokemonCards = (pokemonList) => {
 
     // Add even listeners to each card's image element
     const cardImages = document.querySelectorAll('.card--img')
-    cardImages.forEach((imgElement, index) => {
+    cardImages.forEach((imgElement, index) => {     
         addImageToggleListener(imgElement, pokemonList[index])
     })
 
+    //BUTTON:
+    drop1()
+
+
 
   }
+  
   
 
 //   // THIS IS JUST A TEST:*******************************
