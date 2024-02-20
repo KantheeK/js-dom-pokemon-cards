@@ -1,22 +1,6 @@
 import data from '/src/data.js'
+import { addImageToggleListener, toggleImageSource } from './toggle.js';
 
-// const data = [
-//     {
-//         name:"Stitch"
-//     },
-//     {
-//         name:"Lola"
-//     },
-//     {
-//         name:"Bella"
-//     },
-//     {
-//         name:"nigel"
-//     }
-
-// ]
-
-//console.log(data);
 
 //You can start simple and just render a single 
 //pokemon card from the first element
@@ -45,9 +29,9 @@ console.log(data[0]);
 
 
 // Making single pokemon card: 
-const createPokemonCard = (pokemon) => {
+const createPokemonCard = (pokemon, index) => {
     return ` 
-    <li class="card">
+    <li class="card id="card-${index}">
   <h2 class="card--title">${pokemon.name}</h2>
   <img
     width="256"
@@ -79,10 +63,33 @@ createPokemonCard(data[0])
 const renderPokemonCards = (pokemonList) => {
     //document.getElementsByClassName('cards')[0].innerHTML = createAllPets(data).join('')
     // const cardsContainer = document.getElementsByClassName('cards)[0]
-    const cardsContainer = document.querySelector('.cards');
-    const cardsHTML = pokemonList.map(pokemon => createPokemonCard(pokemon)).join('');
-    cardsContainer.innerHTML = cardsHTML;
-  };
+    const cardsContainer = document.querySelector('.cards')
+    const cardsHTML = pokemonList.map((pokemon, index) => { return createPokemonCard(pokemon, index)}).join('');
+    cardsContainer.innerHTML = cardsHTML
+
+    // Add even listeners to each card's image element
+    const cardImages = document.querySelectorAll('.card--img')
+    cardImages.forEach((imgElement, index) => {
+        addImageToggleListener(imgElement, pokemonList[index])
+    })
+
+
+  }
   
-  // Call the function to render Pokemon cards passing the data array
-  renderPokemonCards(data);
+
+//   // THIS IS JUST A TEST:*******************************
+//   // CLICK on card:
+//   // Get all cards:
+//   const cards = document.querySelectorAll('.cards')
+//   cards.forEach(card => {
+//       card.addEventListener('click', () => {
+//           // Perform action:
+//           card.classList.toggle('active');
+//           console.log('CARD clicked!')
+//         })
+//     })
+//     //****************************************************
+
+
+    // Call the function to render Pokemon cards passing the data array
+    renderPokemonCards(data);

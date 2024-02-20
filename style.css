@@ -76,3 +76,10 @@ h2 {
 ul.cards {
   list-style-type: none;
 }
+
+/* Define styles for the card when active (clicked) */
+/* .cards.active {
+  transform: scale(1.02); /* Scale the card more when active (clicked) */
+  background-color: #74e914;
+} 
+*/
