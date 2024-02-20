@@ -52,7 +52,7 @@ const createPokemonCard = (pokemon) => {
   <img
     width="256"
     class="card--img"
-    src="${pokemon.sprites.front_default}"
+    src="${pokemon.sprites.other["official-artwork"].front_default}"
   />
 
   <!-- This is the text: -->
